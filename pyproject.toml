@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "umai"
+version = "0.1.0"
+description = "UMAI: filler ([uh]/[um]) tagging on top of a frozen Qwen3-ASR-1.7B, single greedy pass, closed-form head"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+# Pinned to the exact versions of the environment in which inference was verified to match the reference computation
+dependencies = [
+  "torch==2.11.0",
+  "transformers==4.57.6",
+  "qwen-asr==0.0.6",
+  "safetensors==0.8.0",
+  "soundfile==0.14.0",
+  "librosa==0.11.0",
+  "numpy==2.2.6",
+  "accelerate==1.12.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "inference"}
+packages = ["umai"]

@@ -1,0 +1,63 @@
+{
+ "name": "umai",
+ "asr_model": "Qwen/Qwen3-ASR-1.7B",
+ "language": "English",
+ "context": "",
+ "max_new_tokens": 260,
+ "eos_token_ids": [
+  151645,
+  151643
+ ],
+ "gap_classes": [
+  "O",
+  "F",
+  "E",
+  "U",
+  "Q"
+ ],
+ "frame_classes": [
+  "S",
+  "W",
+  "F",
+  "Efrag",
+  "Erep"
+ ],
+ "filler_class": "F",
+ "forms": [
+  "uh",
+  "um"
+ ],
+ "form_token_ids": {
+  "uh": [
+   12540,
+   43744,
+   68049,
+   71791
+  ],
+  "um": [
+   372,
+   2794,
+   4443,
+   23334,
+   44667,
+   57122
+  ]
+ },
+ "n_frame_sources": 25,
+ "write_threshold": 0.75,
+ "um_threshold": 0.5,
+ "um_prior_cal": 0.32090714015231203,
+ "filler_prior_cal": {
+  "E": 19595,
+  "O": 655977,
+  "U": 106213,
+  "F": 26408,
+  "Q": 1922
+ },
+ "notes": {
+  "gate": "UMAI filler gate: closed-form LDAs on greedy-condition gaps (decoder states, audio windows), natural weights, isotonic P(F); write P > write_threshold",
+  "form": "UMAI form: lm@g (Qwen log P(um) - log P(uh) at h_g, last layer) + AF (projector frame uh/um llr pooled by window x p(F)); P(um) = iso(comb); AMI NXT labels",
+  "stage1": "per source 5-class frame LDA (encoder layers 0..23, then projector), AMI NXT word-time frame labels",
+  "feature_order": "gap: S1g (112) | S1g1 (112) | audio (10) | next-word window audio (10) | previous word is Qwen filler (1); end gap: S1g (112) | audio (10) | previous word is Qwen filler (1)"
+ }
+}
