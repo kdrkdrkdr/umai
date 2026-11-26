@@ -9,8 +9,7 @@ Qwen3-ASR as is:  okay so we should go with the yellow one
 UMAI:             okay so [uh] we should go with the [um] yellow one
 ```
 
-The method, the experimental setup and all results are in the paper: [`paper/README.md`](paper/README.md)
-(ICASSP-format source in [`paper/icassp2027/`](paper/icassp2027/), Korean version in [`paper/README.ko.md`](paper/README.ko.md)).
+The method, the experimental setup and all results are in the paper: [arXiv:2611.34256](https://arxiv.org/abs/2611.34256).
 
 ## Install and use
 
@@ -80,3 +79,17 @@ Data-preparation code, evaluation code and the LLM-corrected gap labels are not 
 - The calibration values (`heads/`) were computed from the original transcripts of the AMI Meeting Corpus (CC BY 4.0). Credit it when redistributing:
   *"Calibration statistics derived from the AMI Meeting Corpus (CC BY 4.0), https://groups.inf.ed.ac.uk/ami/corpus/ ."*
 - The Nyra dataset (`nyralabs/disfluency_speech_english`) is Apache-2.0, and its official scorer is MIT.
+
+## Citation
+
+```bibtex
+@misc{kim2026umai,
+  author        = {Gyeongmin Kim},
+  title         = {{UMAI}: {UM} Aware Inference with a Frozen {Qwen3-ASR}},
+  year          = {2026},
+  eprint        = {2611.34256},
+  archivePrefix = {arXiv},
+  primaryClass  = {eess.AS},
+  url           = {https://arxiv.org/abs/2611.34256}
+}
+```
